@@ -34,8 +34,8 @@ public class TimestreamRecordConverter {
                         .name("availability_zone")
                         .value(event.getAvailabilityZone()).build(),
                 Dimension.builder()
-                        .name("microservice_name")
-                        .value(event.getMicroserviceName()).build(),
+                        .name("id")
+                        .value(event.getId()).build(),
                 Dimension.builder()
                         .name("instance_name")
                         .value(event.getInstanceName()).build(),
@@ -95,8 +95,8 @@ public class TimestreamRecordConverter {
                         .name("availability_zone")
                         .value(metric.getAvailabilityZone()).build(),
                 Dimension.builder()
-                        .name("microservice_name")
-                        .value(metric.getMicroserviceName()).build(),
+                        .name("id")
+                        .value(metric.getId()).build(),
                 Dimension.builder()
                         .name("instance_type")
                         .value(metric.getInstanceType()).build(),
@@ -110,85 +110,69 @@ public class TimestreamRecordConverter {
 
         List<MeasureValue> measureValues = List.of(
                 MeasureValue.builder()
-                        .name("cpu_user")
-                        .type(MeasureValueType.DOUBLE)
-                        .value(doubleToString(metric.getCpuUser())).build(),
+                        .name("browser")
+                        .type(MeasureValueType.VARCHAR)
+                        .value(metric.getBrowserType()).build(),
                 MeasureValue.builder()
-                        .name("cpu_system")
-                        .type(MeasureValueType.DOUBLE)
-                        .value(doubleToString(metric.getCpuSystem())).build(),
+                        .name("browser_version")
+                        .type(MeasureValueType.VARCHAR)
+                        .value(metric.getBrowserVersion()).build(),
                 MeasureValue.builder()
-                        .name("cpu_steal")
-                        .type(MeasureValueType.DOUBLE)
-                        .value(doubleToString(metric.getCpuSteal())).build(),
+                        .name("country_geo_ip")
+                        .type(MeasureValueType.VARCHAR)
+                        .value(metric.getCountryGeoIp()).build(),
                 MeasureValue.builder()
-                        .name("cpu_iowait")
-                        .type(MeasureValueType.DOUBLE)
-                        .value(doubleToString(metric.getCpuIowait())).build(),
+                        .name("device")
+                        .type(MeasureValueType.VARCHAR)
+                        .value(metric.getDeviceType()).build(),
                 MeasureValue.builder()
-                        .name("cpu_nice")
-                        .type(MeasureValueType.DOUBLE)
-                        .value(doubleToString(metric.getCpuNice())).build(),
+                        .name("evt_cat_1")
+                        .type(MeasureValueType.VARCHAR)
+                        .value(metric.getEvtCat1()).build(),
                 MeasureValue.builder()
-                        .name("cpu_hi")
-                        .type(MeasureValueType.DOUBLE)
-                        .value(doubleToString(metric.getCpuHi())).build(),
+                        .name("evt_cat_2")
+                        .type(MeasureValueType.VARCHAR)
+                        .value(metric.getEvtCat2()).build(),
                 MeasureValue.builder()
-                        .name("cpu_si")
-                        .type(MeasureValueType.DOUBLE)
-                        .value(doubleToString(metric.getCpuSi())).build(),
+                        .name("evt_cat_3")
+                        .type(MeasureValueType.VARCHAR)
+                        .value(metric.getEvtCat3()).build(),
                 MeasureValue.builder()
-                        .name("cpu_idle")
-                        .type(MeasureValueType.DOUBLE)
-                        .value(doubleToString(metric.getCpuIdle())).build(),
+                        .name("evt_type")
+                        .type(MeasureValueType.VARCHAR)
+                        .value(metric.getEvtType()).build(),
                 MeasureValue.builder()
-                        .name("memory_free")
-                        .type(MeasureValueType.DOUBLE)
-                        .value(doubleToString(metric.getMemoryFree())).build(),
+                        .name("id")
+                        .type(MeasureValueType.VARCHAR)
+                        .value(metric.getId()).build(),
                 MeasureValue.builder()
-                        .name("memory_used")
-                        .type(MeasureValueType.DOUBLE)
-                        .value(doubleToString(metric.getMemoryUsed())).build(),
+                        .name("referral")
+                        .type(MeasureValueType.VARCHAR)
+                        .value(metric.getReferral()).build(),
                 MeasureValue.builder()
-                        .name("memory_cached")
-                        .type(MeasureValueType.DOUBLE)
-                        .value(doubleToString(metric.getMemoryCached())).build(),
+                        .name("session_id")
+                        .type(MeasureValueType.VARCHAR)
+                        .value(metric.getSessionId()).build(),
                 MeasureValue.builder()
-                        .name("disk_io_reads")
-                        .type(MeasureValueType.DOUBLE)
-                        .value(doubleToString(metric.getDiskIOReads())).build(),
+                        .name("ts")
+                        .type(MeasureValueType.VARCHAR)
+                        .value(metric.getTs()).build(),
                 MeasureValue.builder()
-                        .name("disk_io_writes")
-                        .type(MeasureValueType.DOUBLE)
-                        .value(doubleToString(metric.getDiskIOWrites())).build(),
+                        .name("url")
+                        .type(MeasureValueType.VARCHAR)
+                        .value(metric.getUrl()).build(),
                 MeasureValue.builder()
-                        .name("latency_per_read")
-                        .type(MeasureValueType.DOUBLE)
-                        .value(doubleToString(metric.getLatencyPerRead())).build(),
+                        .name("user_id")
+                        .type(MeasureValueType.VARCHAR)
+                        .value(metric.getUserId()).build(),
                 MeasureValue.builder()
-                        .name("latency_per_write")
-                        .type(MeasureValueType.DOUBLE)
-                        .value(doubleToString(metric.getLatencyPerWrite())).build(),
-                MeasureValue.builder()
-                        .name("network_bytes_in")
-                        .type(MeasureValueType.DOUBLE)
-                        .value(doubleToString(metric.getNetworkBytesIn())).build(),
-                MeasureValue.builder()
-                        .name("network_bytes_out")
-                        .type(MeasureValueType.DOUBLE)
-                        .value(doubleToString(metric.getNetworkBytesOut())).build(),
-                MeasureValue.builder()
-                        .name("disk_used")
-                        .type(MeasureValueType.DOUBLE)
-                        .value(doubleToString(metric.getDiskUsed())).build(),
+                        .name("user_type")
+                        .type(MeasureValueType.VARCHAR)
+                        .value(metric.getUserType()).build(),
                 MeasureValue.builder()
                         .name("disk_free")
                         .type(MeasureValueType.DOUBLE)
-                        .value(doubleToString(metric.getDiskFree())).build(),
-                MeasureValue.builder()
-                        .name("file_descriptors_in_use")
-                        .type(MeasureValueType.DOUBLE)
-                        .value(doubleToString(metric.getFileDescriptorInUse())).build()
+                        .value(doubleToString(metric.getDiskFree())).build()
         );
 
 

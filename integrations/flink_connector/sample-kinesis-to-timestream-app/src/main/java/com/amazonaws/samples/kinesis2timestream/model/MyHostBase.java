@@ -1,5 +1,4 @@
 package com.amazonaws.samples.kinesis2timestream.model;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
@@ -14,8 +13,8 @@ import lombok.Data;
 })
 @Data
 public class MyHostBase {
-    @JsonProperty(value = "microservice_name", required = true)
-    private String microserviceName;
+    @JsonProperty(value = "id", required = false)
+    private String id;
 
     @JsonProperty(value = "instance_name", required = true)
     private String instanceName;
